@@ -1,0 +1,153 @@
+/* Created by Ali Zaghloul on 16/09/2026 */
+/* ------------------------------------------------------------------
+   Base — reset, typography, layout primitives, buttons, utilities.
+   ------------------------------------------------------------------ */
+*,
+*::before,
+*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--dur) var(--ease-out), color var(--dur) var(--ease-out);
+}
+body.is-locked { overflow: hidden; }
+
+img, svg, video { display: block; max-width: 100%; height: auto; }
+button, input, textarea, select { font: inherit; color: inherit; }
+button { background: none; border: 0; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+
+::selection { background: rgba(var(--accent-rgb), 0.35); color: var(--text); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute; left: 1rem; top: -4rem; z-index: 2000;
+  padding: 0.6rem 1rem; border-radius: var(--radius-sm);
+  background: var(--accent); color: var(--bg); font-weight: 600;
+  transition: top var(--dur-fast);
+}
+.skip-link:focus { top: 1rem; }
+
+/* Typography ------------------------------------------------------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+h1 { font-size: var(--fs-hero); }
+h2 { font-size: var(--fs-2xl); }
+h3 { font-size: var(--fs-xl); }
+h4 { font-size: var(--fs-lg); }
+p { color: var(--text-2); max-width: 68ch; }
+strong { color: var(--text); font-weight: 600; }
+code, kbd { font-family: var(--font-mono); font-size: 0.9em; }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: var(--font-mono); font-size: var(--fs-xs);
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);
+}
+.eyebrow::before { content: ''; width: 22px; height: 1px; background: var(--accent); opacity: 0.7; }
+
+.gradient-text {
+  background: var(--gradient);
+  background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  animation: gradient-shift 6s ease-in-out infinite alternate;
+}
+
+.section-head { display: grid; gap: 0.9rem; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+.section-head h2 { max-width: 20ch; }
+.section-head p { font-size: var(--fs-lg); }
+.section-head--split {
+  grid-template-columns: 1fr;
+  align-items: end;
+}
+@media (min-width: 900px) {
+  .section-head--split { grid-template-columns: 1.2fr 1fr; gap: 3rem; }
+}
+
+/* Layout ----------------------------------------------------------- */
+.container { width: min(100% - 2 * var(--gutter), var(--container)); margin-inline: auto; }
+.section { position: relative; padding-block: var(--section-y); overflow-x: clip; }
+.section + .section { border-top: 1px solid var(--border); }
+
+/* Buttons ---------------------------------------------------------- */
+.btn {
+  --btn-bg: var(--surface-2);
+  --btn-fg: var(--text);
+  position: relative; isolation: isolate;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  min-height: 48px; padding: 0.8rem 1.5rem;
+  border-radius: 999px; border: 1px solid var(--border-strong);
+  background: var(--btn-bg); color: var(--btn-fg);
+  font-weight: 600; font-size: var(--fs-sm); letter-spacing: 0.01em;
+  transition: transform var(--dur) var(--ease-out), border-color var(--dur-fast), background var(--dur-fast), color var(--dur-fast), box-shadow var(--dur);
+  will-change: transform;
+}
+.btn:hover { border-color: rgba(var(--accent-rgb), 0.6); }
+.btn .btn__icon { transition: transform var(--dur) var(--ease-out); }
+.btn:hover .btn__icon { transform: translate(3px, -3px); }
+
+.btn--primary {
+  --btn-bg: var(--accent);
+  --btn-fg: #05070a;
+  border-color: transparent;
+  overflow: hidden;
+}
+.btn--primary::after {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: var(--gradient); opacity: 0;
+  transition: opacity var(--dur) var(--ease-out);
+}
+.btn--primary:hover { box-shadow: 0 12px 30px -10px rgba(var(--accent-rgb), 0.7); }
+.btn--primary:hover::after { opacity: 1; }
+[data-theme='light'] .btn--primary { --btn-fg: #ffffff; }
+
+.btn--ghost { --btn-bg: transparent; }
+.btn--sm { min-height: 40px; padding: 0.55rem 1.1rem; font-size: var(--fs-xs); }
+.btn--icon { width: 44px; height: 44px; min-height: 0; padding: 0; border-radius: 50%; }
+
+/* Badges ----------------------------------------------------------- */
+.badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.3rem 0.7rem; border-radius: 999px;
+  font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.04em;
+  background: var(--surface-2); border: 1px solid var(--border); color: var(--text-2);
+  transition: border-color var(--dur-fast), color var(--dur-fast), transform var(--dur) var(--ease-out), background var(--dur-fast);
+}
+.badge:hover { border-color: rgba(var(--accent-rgb), 0.6); color: var(--text); transform: translateY(-2px); }
+.badge--accent { color: var(--accent); border-color: rgba(var(--accent-rgb), 0.35); background: rgba(var(--accent-rgb), 0.08); }
+.badge--dot::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+/* Cards ------------------------------------------------------------ */
+.card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  backdrop-filter: blur(6px);
+}
+
+/* Utilities -------------------------------------------------------- */
+.muted { color: var(--text-3); }
+.mono { font-family: var(--font-mono); }
+.stack { display: grid; gap: 0.75rem; }
+.row { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; }
+@media (max-width: 759px) { .hide-mobile { display: none !important; } }

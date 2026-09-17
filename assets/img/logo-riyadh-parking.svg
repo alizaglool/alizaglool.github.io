@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <!-- Created by Ali Zaghloul on 16/09/2026 -->
+  <rect width="120" height="120" fill="#0d1017"/>
+  <rect x="8" y="8" width="104" height="104" rx="26" fill="none" stroke="#8b7cff" stroke-opacity="0.4" stroke-width="2.5"/>
+  <text x="60" y="62" text-anchor="middle" dominant-baseline="central" font-family="Sora, Inter, -apple-system, sans-serif" font-weight="800" font-size="32" fill="#8b7cff">RP</text>
+</svg>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- Created by Ali Zaghloul on 16/09/2026 -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Ali Zaghloul — Senior iOS Engineer · Swift</title>
+  <meta name="description" content="Ali Zaghloul — Senior iOS Engineer in Riyadh building the Marn POS ecosystem at Jahez Group: offline-first, real-time point-of-sale apps in Swift. Previously the Riyadh Municipality parking apps, health-tech and logistics. MVVM, Combine, Core Data, SignalR." />
+  <meta name="author" content="Ali Zaghloul" />
+  <meta name="keywords" content="iOS developer Riyadh, Senior iOS Engineer, Swift, UIKit, SwiftUI, Combine, RxSwift, MVVM, offline-first, Core Data, Realm, SignalR, POS app developer, Ali Zaghloul" />
+  <link rel="canonical" href="https://alizaglool.github.io/" />
+  <meta name="theme-color" content="#07080c" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Ali Zaghloul — Senior iOS Engineer · Swift" />
+  <meta property="og:description" content="Production POS ecosystem at Jahez · Marn, the Riyadh Municipality parking apps, and offline-first Swift architecture — MVVM, Combine, Core Data, SignalR." />
+  <meta property="og:url" content="https://alizaglool.github.io/" />
+  <meta property="og:site_name" content="Ali Zaghloul" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Ali Zaghloul — Senior iOS Engineer · Swift" />
+  <meta name="twitter:description" content="Production POS ecosystem at Jahez · Marn, the Riyadh Municipality parking apps, and offline-first Swift architecture." />
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/motion.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/sections.css" />
+
+  <!-- Theme bootstrap (before paint, avoids flash) -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ali Zaghloul",
+    "jobTitle": "Senior iOS Engineer",
+    "url": "https://alizaglool.github.io/",
+    "email": "mailto:alizaglool90@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Riyadh", "addressCountry": "SA" },
+    "worksFor": { "@type": "Organization", "name": "Jahez Group — Marn" },
+    "sameAs": [
+      "https://github.com/alizaglool",
+      "https://www.linkedin.com/in/alizaghloul/"
+    ],
+    "knowsAbout": ["Swift", "UIKit", "SwiftUI", "Combine", "RxSwift", "MVVM", "Offline-first apps", "Core Data", "Realm", "SignalR", "REST APIs", "POS systems"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <div class="loader__logo">Ali<span>.</span></div>
+      <div class="loader__bar"><i id="loaderBar"></i></div>
+      <div class="loader__status" id="loaderStatus">booting</div>
+    </div>
+  </div>
+
+  <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+  <div class="cursor" id="cursor" aria-hidden="true"><div class="cursor__ring"><span>VIEW</span></div><div class="cursor__dot"></div></div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="nav__logo" href="#top" aria-label="Ali Zaghloul — home"><i></i>Ali Zaghloul</a>
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <span class="nav__indicator" aria-hidden="true"></span>
+        <a href="#about">About</a>
+        <a href="#skills">Stack</a>
+        <a href="#work">Work</a>
+        <a href="#build">How I Build</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="btn btn--icon btn--ghost theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <a class="btn btn--primary btn--sm hide-mobile" href="#contact" data-magnetic>Let’s talk</a>
+        <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <ul>
+      <li style="--i:0"><a href="#about">About</a></li>
+      <li style="--i:1"><a href="#skills">Stack</a></li>
+      <li style="--i:2"><a href="#work">Work</a></li>
+      <li style="--i:3"><a href="#build">How I Build</a></li>
+      <li style="--i:4"><a href="#experience">Experience</a></li>
+      <li style="--i:5"><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <main id="main">
+    <!-- ============================ HERO ============================ -->
+    <section class="hero" id="top">
+      <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="hero__blob hero__blob--a" data-depth="0.04" aria-hidden="true"></div>
+      <div class="hero__blob hero__blob--b" data-depth="-0.03" aria-hidden="true"></div>
+
+      <pre class="hero__code hero__code--1" data-depth="0.06" aria-hidden="true">final class OrdersViewModel: ObservableObject {
+  @Published private(set) var state: OrdersState = .loading
+  init(repo: OrderRepository) {
+    repo.orders.receive(on: RunLoop.main).assign(to: &amp;$state)
+  }</pre>
+      <pre class="hero__code hero__code--2" data-depth="-0.05" aria-hidden="true">func safeCall&lt;T: Decodable&gt;(_ r: Request) async -&gt; Result&lt;T, AppError&gt; {
+  do { return .success(try await api.send(r)) }
+  catch { return .failure(.from(error)) }
+}</pre>
+      <pre class="hero__code hero__code--3" data-depth="0.08" aria-hidden="true">try await store.write { ctx in
+  ctx.insert(sale)
+  ctx.insert(ledger)
+  ctx.insert(SyncOp.push(sale))   // offline-first
+}</pre>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <span class="badge badge--accent hero__status" data-reveal="fade"><i></i>Senior iOS Engineer @ Jahez · Building Marn POS</span>
+          <h1 class="hero__title" id="heroTitle">
+            <span class="line split">I build iOS systems</span>
+            <span class="line split">that work <span class="gradient-text">offline,</span></span>
+            <span class="line split">sync in real time, and ship.</span>
+          </h1>
+          <div class="hero__roles"><span id="roleText">Senior iOS Engineer</span><span class="caret" aria-hidden="true"></span></div>
+          <p class="hero__lead" data-reveal="up" style="--reveal-delay:500ms">
+            I’m <strong>Ali Zaghloul</strong>, a Senior iOS Engineer in Riyadh. I build Marn POS at Jahez Group — a three-app point-of-sale ecosystem where orders move between cashier, kitchen and customer screens in real time, online or offline. Before that: the capital’s municipal parking apps, health-tech and logistics.
+          </p>
+          <div class="hero__ctas" data-reveal="up" style="--reveal-delay:650ms">
+            <a class="btn btn--primary" href="#work" data-magnetic>View Work <svg class="btn__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a class="btn" href="#contact" data-magnetic>Contact Me</a>
+            <a class="btn btn--ghost" href="Ali-Zaghloul-CV.pdf" target="_blank" rel="noopener" data-magnetic>Résumé <svg class="btn__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg></a>
+          </div>
+          <div class="hero__socials" data-reveal="up" style="--reveal-delay:800ms">
+            <a href="https://github.com/alizaglool" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></a>
+            <a href="https://www.linkedin.com/in/alizaghloul/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.4h-3.5v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.1 2.1 2.1 0 0 1 0 4.1zM7.1 20.4H3.6V9h3.5v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg></a>
+          </div>
+        </div>
+
+        <div class="hero__visual" id="heroVisual">
+          <div class="hero__ring" aria-hidden="true"></div>
+          <figure class="hero__portrait tilt" id="portrait" data-reveal="scale">
+            <img src="assets/img/portrait.svg" alt="Stylised Swift code card — Ali Zaghloul, Senior iOS Engineer" width="600" height="600" fetchpriority="high" />
+          </figure>
+          <span class="hero__chip hero__chip--1" data-depth="0.05"><b>12+</b> apps shipped to production</span>
+          <span class="hero__chip hero__chip--2" data-depth="-0.06"><b>offline-first</b> Core Data + sync queue</span>
+          <span class="hero__chip hero__chip--3" data-depth="0.07"><b>Swift</b> · UIKit · SwiftUI</span>
+          <span class="hero__chip hero__chip--4" data-depth="-0.04"><b>3</b> apps in one POS ecosystem</span>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true"><i></i>scroll</div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" id="marqueeTrack"></div>
+    </div>
+
+    <!-- ============================ ABOUT ============================ -->
+    <section class="section about" id="about">
+      <div class="container about__grid">
+        <div class="about__text">
+          <span class="eyebrow" data-reveal="mask">About</span>
+          <h2 class="split">Software that survives a restaurant rush — not just a demo.</h2>
+          <p data-reveal="blur">I’m on the Marn team at <mark>Jahez Group</mark> in Riyadh, building the point-of-sale apps that run restaurants across Saudi Arabia. On a busy floor the internet drops mid-service — the order still has to reach the kitchen, the receipt still has to print, and every device has to agree on the bill. Reliability isn’t a feature there; it’s the baseline.</p>
+          <p data-reveal="blur" style="--reveal-delay:120ms">Before Jahez I shipped <mark>the capital’s parking apps</mark> for the Riyadh Municipality — map-heavy, Arabic-first products where a stale timer means a real fine — and before that, health-tech, logistics and messaging apps in Cairo. That road shaped how I design: <mark>local database as source of truth</mark>, a sync queue for the cloud, repositories that hide I/O, and ViewModels that never touch the network.</p>
+          <p data-reveal="blur" style="--reveal-delay:240ms">I care about <mark>maintainability over cleverness</mark> — MVVM with Combine or RxSwift, typed failures, SPM modules, tests around the money-moving code, and legacy migrations that land as small, always-buildable steps while releases keep shipping.</p>
+        </div>
+        <div class="about__facts" data-stagger style="--stagger-step:110ms">
+          <div class="card about__fact" style="--i:0">
+            <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></i>
+            <div><h3 class="about__fact-title">Production POS delivery</h3><p>Three point-of-sale apps live on the App Store, running daily shifts in restaurants across Saudi Arabia.</p></div>
+          </div>
+          <div class="card about__fact" style="--i:1">
+            <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></i>
+            <div><h3 class="about__fact-title">Offline-first by design</h3><p>Core Data and Realm as source of truth, write queues, sync recovery and real-time invalidation over SignalR.</p></div>
+          </div>
+          <div class="card about__fact" style="--i:2">
+            <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></i>
+            <div><h3 class="about__fact-title">Hardware that behaves</h3><p>SUNMI, Zebra and Star printers, barcode scanners and NFC — wrapped in protocols, testable without the device.</p></div>
+          </div>
+          <div class="card about__fact" style="--i:3">
+            <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h7"/><path d="m17 15 2 2 4-4"/></svg></i>
+            <div><h3 class="about__fact-title">Arabic-first UX</h3><p>RTL layouts, bilingual l10n and typography tuned for Arabic readers — every product I ship is bilingual.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ SKILLS ============================ -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <span class="eyebrow" data-reveal="mask">Tech stack</span>
+            <h2 class="split">Tools I’ve shipped with — hover one to see where it’s used.</h2>
+          </div>
+          <p data-reveal="right">Everything here comes from real codebases: a production POS ecosystem, municipal parking apps and health-tech products. No résumé padding.</p>
+        </div>
+        <div class="skills__tabs" id="skillTabs" role="tablist" aria-label="Skill groups"></div>
+        <div class="skills__layout">
+          <div>
+            <div class="skills__cloud" id="skillCloud" data-reveal="fade"></div>
+            <div class="skills__legend"><span><i style="background:var(--accent)"></i>core — daily driver</span><span><i style="background:var(--accent-2)"></i>strong — shipped in production</span><span><i style="background:var(--text-3)"></i>used — applied in at least one project</span></div>
+          </div>
+          <aside class="card skills__panel" id="skillPanel" aria-live="polite" data-reveal="left">
+            <span class="eyebrow">Related work</span>
+            <h3>Pick a technology</h3>
+            <p class="muted">Hover or tap a skill to see the projects it was used in.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FEATURED WORK ============================ -->
+    <section class="section featured" id="work">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <span class="eyebrow" data-reveal="mask">Featured work</span>
+            <h2 class="split">Systems people rely on every day.</h2>
+          </div>
+          <p data-reveal="right">Four products, ranked by real-world impact and technical depth. Click any one for the full case study — problem, architecture, my role, challenges and results.</p>
+        </div>
+        <div class="featured__list" id="featuredList"></div>
+      </div>
+    </section>
+
+    <!-- ============================ MORE PROJECTS ============================ -->
+    <section class="section more" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal="mask">More projects</span>
+          <h2 class="split">Production apps, client work and the projects that got me here.</h2>
+        </div>
+        <div class="projects-grid" id="projectsGrid" data-stagger style="--stagger-step:90ms"></div>
+      </div>
+    </section>
+
+    <!-- ============================ HOW I BUILD ============================ -->
+    <section class="section build" id="build">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <span class="eyebrow" data-reveal="mask">How I build</span>
+            <h2 class="split">One architecture, from POS terminals to parking apps.</h2>
+          </div>
+          <p data-reveal="right">This is the actual data flow inside Marn POS, Riyadh Parking and Mawqfi. Hover a layer to trace its connections; click it to read how it’s implemented.</p>
+        </div>
+        <div class="build__layout">
+          <div class="arch" id="arch" data-reveal="fade"></div>
+          <aside class="card build__panel" id="archPanel" aria-live="polite" data-reveal="left"></aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PHILOSOPHY ============================ -->
+    <section class="section philosophy" id="philosophy">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal="mask">Engineering philosophy</span>
+          <h2 class="split">Rules I actually follow in the codebases above.</h2>
+        </div>
+        <div class="principles" id="principles">
+          <article class="card principle" data-reveal="flip" style="--i:0"><h3>Local first, then sync</h3><p>The device database is the source of truth. Every sale lands in Core Data inside one transaction, then a background queue replays it to the cloud when connectivity returns.</p><em>Marn POS · Marn KDS</em><span class="principle__bar"></span></article>
+          <article class="card principle" data-reveal="flip" style="--i:1"><h3>ViewModels never touch I/O</h3><p>Repositories own URLSession, Core Data and SignalR. ViewModels orchestrate state from publishers and typed results, so screens stay testable and swappable.</p><em>Marn POS · EMLE · every codebase since</em><span class="principle__bar"></span></article>
+          <article class="card principle" data-reveal="flip" style="--i:2"><h3>Failures are values</h3><p>Network calls return <code>Result&lt;T, AppError&gt;</code> through a single safe wrapper, so error handling is uniform and never an afterthought.</p><em>Marn POS · EMLE · Ayamedica</em><span class="principle__bar"></span></article>
+          <article class="card principle" data-reveal="flip" style="--i:3"><h3>Test the money paths</h3><p>Pricing, discounts, VAT rounding and sync ordering get unit tests before UI polish — a receipt is a fiscal document, not a label.</p><em>Marn POS</em><span class="principle__bar"></span></article>
+          <article class="card principle" data-reveal="flip" style="--i:4"><h3>Migrate in small steps</h3><p>Legacy migrations ship as small, always-buildable steps — MVC becomes MVVM screen by screen while releases keep going out on schedule.</p><em>Riyadh Parking · Mawqfi · Ayamedica</em><span class="principle__bar"></span></article>
+          <article class="card principle" data-reveal="flip" style="--i:5"><h3>Hardware fails politely</h3><p>Printers, scanners and NFC fail politely. Retry quietly, queue the job, never block the counter.</p><em>Marn POS · Swipy</em><span class="principle__bar"></span></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ EXPERIENCE ============================ -->
+    <section class="section experience" id="experience">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal="mask">Experience</span>
+          <h2 class="split">Where the work happened.</h2>
+        </div>
+        <div class="timeline" id="timeline"><span class="timeline__line" id="timelineLine" aria-hidden="true"></span></div>
+        <div class="education" id="education" data-stagger></div>
+      </div>
+    </section>
+
+    <!-- ============================ STATS ============================ -->
+    <section class="section stats" id="stats">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal="mask">By the numbers</span>
+          <h2 class="split">Verified, not vanity.</h2>
+        </div>
+        <div class="stats__grid" id="statsGrid" data-stagger></div>
+      </div>
+    </section>
+
+    <!-- ============================ GITHUB ============================ -->
+    <section class="section github" id="github">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <span class="eyebrow" data-reveal="mask">GitHub</span>
+            <h2 class="split">Open source &amp; public repositories.</h2>
+          </div>
+          <p data-reveal="right">Most production work lives in private company and client repositories. The public ones are pulled live from GitHub.</p>
+        </div>
+        <div class="gh__layout" id="ghLayout"></div>
+        <p class="gh__note">Private work: Marn POS, Marn KDS, Marn Customer Display (Jahez Group) · Riyadh Parking, Mawqfi (SAMI-AEC) · Ayamedica, Swipy (client repositories).</p>
+      </div>
+    </section>
+
+    <!-- ============================ CONTACT ============================ -->
+    <section class="section contact" id="contact">
+      <div class="container contact__layout">
+        <div class="contact__intro">
+          <span class="eyebrow" data-reveal="mask">Contact</span>
+          <h2 class="split">Let’s build something great together.</h2>
+          <p data-reveal="blur">Hiring for a senior iOS role, need an offline-first product built properly, or want a second opinion on your app’s architecture? I usually reply within a day.</p>
+          <div class="contact__channels" data-stagger>
+            <a class="card contact__channel" href="mailto:alizaglool90@gmail.com" style="--i:0">
+              <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></i>
+              <div><b>Email</b><span>alizaglool90@gmail.com</span></div>
+              <button class="copy" type="button" data-copy="alizaglool90@gmail.com" aria-label="Copy email">copy</button>
+            </a>
+            <a class="card contact__channel" href="https://wa.me/966535165099" target="_blank" rel="noopener" style="--i:1">
+              <i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8c.1.2 1.9 2.9 4.6 4 1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg></i>
+              <div><b>WhatsApp</b><span>Quick questions &amp; calls</span></div>
+            </a>
+            <a class="card contact__channel" href="https://www.linkedin.com/in/alizaghloul/" target="_blank" rel="noopener" style="--i:2">
+              <i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.4h-3.5v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.1 2.1 2.1 0 0 1 0 4.1zM7.1 20.4H3.6V9h3.5v11.4z"/></svg></i>
+              <div><b>LinkedIn</b><span>linkedin.com/in/alizaghloul</span></div>
+            </a>
+            <a class="card contact__channel" href="https://github.com/alizaglool" target="_blank" rel="noopener" style="--i:3">
+              <i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></i>
+              <div><b>GitHub</b><span>github.com/alizaglool</span></div>
+            </a>
+          </div>
+        </div>
+        <form class="card form" id="contactForm" novalidate data-reveal="right">
+          <div class="form__row">
+            <div class="field"><label for="fName">Name</label><input id="fName" name="name" type="text" autocomplete="name" required minlength="2" aria-describedby="errName" /><span class="error" id="errName">Please enter your name.</span></div>
+            <div class="field"><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email" required aria-describedby="errEmail" /><span class="error" id="errEmail">Please enter a valid email.</span></div>
+          </div>
+          <div class="field"><label for="fSubject">Subject</label><input id="fSubject" name="subject" type="text" required minlength="3" aria-describedby="errSubject" /><span class="error" id="errSubject">What is this about?</span></div>
+          <div class="field"><label for="fMessage">Message</label><textarea id="fMessage" name="message" required minlength="10" aria-describedby="errMessage"></textarea><span class="error" id="errMessage">Tell me a little more (10+ characters).</span></div>
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
+          <div class="form__foot">
+            <small>No spam, no newsletters — just a reply from me.</small>
+            <button class="btn btn--primary" type="submit" data-magnetic>Send message <svg class="btn__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+          </div>
+          <div class="form__status" id="formStatus" role="status"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand"><b>Ali Zaghloul</b><span>Senior iOS Engineer · Swift · Riyadh, Saudi Arabia</span></div>
+      <div class="footer__links">
+        <a href="https://github.com/alizaglool" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></a>
+        <a href="https://www.linkedin.com/in/alizaghloul/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.4h-3.5v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.1 2.1 2.1 0 0 1 0 4.1zM7.1 20.4H3.6V9h3.5v11.4z"/></svg></a>
+        <a href="https://wa.me/966535165099" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8c.1.2 1.9 2.9 4.6 4 1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg></a>
+        <a href="mailto:alizaglool90@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+      </div>
+      <div class="footer__copy">© <span id="year"></span> Ali Zaghloul · Built with vanilla HTML, CSS &amp; JS · press <kbd>~</kbd> for a surprise</div>
+    </div>
+  </footer>
+
+  <!-- Case-study modal -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" id="modalPanel">
+      <button class="btn btn--icon modal__close" data-close aria-label="Close case study"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <div class="case" id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- Terminal easter egg -->
+  <div class="terminal" id="terminal" aria-hidden="true">
+    <div class="terminal__bar"><i></i><i></i><i></i><span style="margin-left:.5rem">ali@portfolio — zsh</span></div>
+    <div class="terminal__body" id="terminalBody"></div>
+    <form class="terminal__input" id="terminalForm"><span class="p">❯</span><input id="terminalInput" type="text" aria-label="Terminal command" autocomplete="off" spellcheck="false" /></form>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

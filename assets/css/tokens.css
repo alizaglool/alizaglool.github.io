@@ -1,0 +1,84 @@
+/* Created by Ali Zaghloul on 16/09/2026 */
+/* ------------------------------------------------------------------
+   Design tokens — colour, type, spacing, motion.
+   Dark is the default theme; [data-theme="light"] overrides.
+   ------------------------------------------------------------------ */
+:root {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --bg: #07080c;
+  --bg-2: #0c0e15;
+  --bg-3: #12151f;
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-2: rgba(255, 255, 255, 0.055);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  /* Text */
+  --text: #eef0f6;
+  --text-2: #aab0c0;
+  --text-3: #8b91a3;
+
+  /* Brand */
+  --accent: #5ee1ff;          /* cyan  — electric highlight */
+  --accent-2: #8b7cff;        /* violet */
+  --accent-3: #ffb86b;        /* warm highlight for stats */
+  --accent-rgb: 94, 225, 255;
+  --accent-2-rgb: 139, 124, 255;
+  --gradient: linear-gradient(120deg, var(--accent) 0%, var(--accent-2) 100%);
+  --glow: 0 0 0 1px rgba(var(--accent-rgb), 0.18), 0 20px 60px -20px rgba(var(--accent-rgb), 0.35);
+
+  /* Type */
+  --font-display: 'Sora', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: clamp(1.35rem, 1.1rem + 1vw, 1.75rem);
+  --fs-2xl: clamp(1.9rem, 1.3rem + 2.4vw, 3rem);
+  --fs-hero: clamp(2.6rem, 1.4rem + 5.4vw, 5.6rem);
+
+  /* Layout */
+  --container: 1200px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --section-y: clamp(4.5rem, 10vw, 9rem);
+  --radius: 18px;
+  --radius-sm: 10px;
+  --radius-lg: 28px;
+  --nav-h: 72px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 180ms;
+  --dur: 420ms;
+  --dur-slow: 900ms;
+
+  --danger: #ff7b7b;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f6f7fb;
+  --bg-2: #ffffff;
+  --bg-3: #eef0f6;
+  --surface: rgba(10, 14, 30, 0.035);
+  --surface-2: rgba(10, 14, 30, 0.06);
+  --border: rgba(10, 14, 30, 0.1);
+  --border-strong: rgba(10, 14, 30, 0.2);
+  --text: #0d1020;
+  --text-2: #3f4658;
+  --text-3: #5f6678;
+  --accent: #0b6f92;
+  --accent-2: #5b48e6;
+  --accent-3: #a84f05;
+  --accent-rgb: 11, 111, 146;
+  --accent-2-rgb: 91, 72, 230;
+  --glow: 0 0 0 1px rgba(var(--accent-rgb), 0.16), 0 20px 50px -20px rgba(var(--accent-rgb), 0.35);
+  --danger: #c02746;
+}
