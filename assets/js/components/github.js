@@ -9,7 +9,7 @@ import { $, $$, esc } from '../core/env.js';
 import { onceVisible, initReveal } from '../core/reveal.js';
 
 const FALLBACK = {
-  profile: { name: 'Ali Zaghloul', login: site.githubUser, public_repos: 38, followers: 3, location: 'Riyadh, Saudi Arabia', avatar_url: 'assets/img/avatar.svg', html_url: site.github, created_at: '2019-05-11T00:00:00Z' },
+  profile: { name: 'Ali Zaghloul', login: site.githubUser, public_repos: 38, followers: 3, location: 'Riyadh, Saudi Arabia', avatar_url: 'assets/img/profile.jpg', html_url: site.github, created_at: '2019-05-11T00:00:00Z' },
   repos: [
     { name: 'QuranApp', description: 'Quran reading app in Swift — tafsir, translations, offline content.', language: 'Swift', html_url: 'https://github.com/alizaglool/QuranApp', stargazers_count: 0, pushed_at: '2026-06-09' },
     { name: 'tafsir-books', description: 'Quran tafsir & translation JSON files — content source for QuranApp.', language: null, html_url: 'https://github.com/alizaglool/tafsir-books', stargazers_count: 1, pushed_at: '2026-06-02' },
